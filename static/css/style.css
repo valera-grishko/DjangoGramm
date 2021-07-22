@@ -1,0 +1,191 @@
+body {
+margin: 0;
+padding: 0;
+font-family: sans-serif;
+background: #34495e;
+}
+
+#main {
+background-color: #f2f2f2;
+padding: 20px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+-ms-border-radius: 4px;
+-o-border-radius: 4px;
+border-radius: 4px;
+border-bottom: 4px solid #ddd;
+}
+
+#real-estates-detail .sosmed-author i.fa {
+width: 30px;
+height: 30px;
+border: 2px solid #bdc3c7;
+color: #bdc3c7;
+padding-top: 6px;
+margin-top: 10px;
+}
+
+.card {
+box-shadow: 20px 4px 20px 8px rgba(0, 0, 0, 0.6);
+max-width: 500px;
+margin: auto;
+text-align: center;
+background: url(/static/images/bg-dark-0002.png);
+border: 2px solid white;
+border-radius: 32px;
+}
+
+a {
+text-decoration: none;
+color: white;
+}
+
+a:hover {
+color: #2ecc71;
+}
+
+.box {
+width: 500px;
+padding: 40px;
+position: absolute;
+left: 50%;
+transform: translate(-50%, 1%);
+background: url(/static/images/bg-dark-0002.png);
+border-radius: 20px;
+box-shadow: 20px 4px 20px 8px rgba(0, 0, 0, 0.6);
+border: 2px solid white;
+}
+
+.box h1, .box h6, center h1 {
+color: white;
+}
+
+.box p input{
+border: 0;
+background: none;
+display: block;
+margin: 20px auto;
+border: 2px solid #3498db;
+padding: 14px 10px;
+width: 200px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition: 0.25s;
+text-align: center;
+}
+
+.box p input:focus{
+width: 280px;
+border-color: #2ecc71;
+}
+
+.box input[type = "submit"], .box a[type = "button"], .box input[type = "file"]{
+border: 0;
+background: none;
+display: block;
+margin: 20px auto;
+border: 2px solid #2ecc71;
+padding: 14px 20px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition: 0.25s;
+cursor: pointer;
+}
+
+.box input[type = "submit"]:hover, .box a[type = "button"]:hover, .box input[type = "file"]:hover,
+.card .like-btn:hover, a[type = "button"]:hover {
+background: #2ecc71;
+}
+
+a[type = "button"] {
+border: 0;
+background: none;
+border: 3px solid #2ecc71;
+padding: 14px 20px;
+color: white;
+border-radius: 24px;
+transition: 0.25s;
+cursor: pointer;
+text-decoration: none;
+}
+
+.card .dislike-btn {
+border: 0;
+background: none;
+border: 2px solid #FF0000;
+padding: 6px 10px;
+color: white;
+border-radius: 10px;
+cursor: pointer;
+}
+
+.card .dislike-btn:hover {
+background: #FF0000;
+}
+
+.card .like-btn {
+border: 0;
+background: none;
+border: 2px solid #2ecc71;
+padding: 6px 18px;
+color: white;
+border-radius: 10px;
+cursor: pointer;
+}
+
+.follow-btn {
+border: 0;
+background: none;
+border: 3px solid white;
+padding: 10px 24px;
+color: white;
+border-radius: 10px;
+cursor: pointer;
+}
+
+.follow-btn:hover {
+background: white;
+}
+
+.panel-body, .panel-heading, .panel, .active {
+box-shadow: 20px 4px 20px 8px rgba(0, 0, 0, 0.4);
+border: 1px solid white;
+background: url(/static/images/bg-dark-0002.png);
+border-radius: 8px;
+}
+
+.panel-body h3, .panel td{
+color: white;
+}
+
+.panel .active, .panel-heading strong {
+color: #2ecc71;
+}
+
+.d-flex {
+width: 250px;
+border: 0;
+background: none;
+display: block;
+border: 2px solid white;
+padding: 14px 20px;
+outline: none;
+color: white;
+border-radius: 24px;
+transition: 0.25s;
+cursor: pointer;
+}
+
+.d-flex:hover {
+background: black;
+}
+
+.d-flex a:hover {
+color: white;
+}
+
+
+
+

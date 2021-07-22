@@ -1,0 +1,114 @@
+{% load static %}
+<head>
+    <title>Profile {{ user_profile.username }}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/DG.png">
+
+    <script src="/static/js/main.js"></script>
+    <link rel="stylesheet" href="https://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+
+<br><br><br>
+
+<center>
+    {% if request.user.id != user_profile.id %}
+    <a href="/account/profile/{{request.user.id}}" type="button">My profile</a>
+    {% else %}
+    <a href="/account/edit/" type="button">Edit profile</a>
+    {% endif %}
+    <a href="/account/feed/my" type="button">Feed</a>
+    <a href="/account/followers/{{user_profile.id}}" type="button">Followers</a>
+    <a href="/account/logout/" type="button">Logout</a><br><br>
+    {% if request.user.id != user_profile.id %}
+    <div id="follow">
+        <button data-catid="{{user_profile.id}}" class="btn btn-secondary follow-btn" type="button" name="follow">
+            <span class="ui-button-text">{{button}}</span>
+        </button>
+    </div>
+    {% endif %}
+</center>
+<br><br>
+
+<div class="container">
+    <div class="row" id="real-estates-detail">
+        <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <header class="panel-title">
+                        <div class="text-center">
+                            <strong>P r o f i l e</strong>
+                        </div>
+                    </header>
+                </div>
+                <div class="panel-body">
+                    <div class="text-center" id="author">
+                        <img src="{{ user_profile.avatar.url }}" width="300">
+                        <h3>{{ user_profile.username }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-xs-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <br><br>
+                    <div class="tab-pane fade active in" id="detail">
+                        <table class="table table-th-block">
+                            <tbody>
+                            <tr>
+                                <td class="active">First name:</td>
+                                <td>{{ user_profile.first_name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="active">Last name:</td>
+                                <td>{{ user_profile.last_name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="active">email:</td>
+                                <td>{{ user_profile.email }}</td>
+                            </tr>
+                            <tr>
+                                <td class="active">City:</td>
+                                <td>{{ user_profile.city }}</td>
+                            </tr>
+                            <tr>
+                                <td class="active">Gender:</td>
+                                <td>{{ user_profile.gender }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<center>
+    <h1> Photos </h1>
+</center>
+{% for photo in photos %}
+<br><br>
+<div class="card">
+    <br><br>
+    <center>
+        <p><img src="{{ photo.photo.url }}" width="400" border="1"></p>
+    </center><br>
+    <div id="like{{photo.id}}">
+        <button data-catid="{{photo.id}}" class="btn btn-success like-btn" name="like"> like</button>
+        <a href="/account/likes/{{photo.id}}"><span>{{photo.likes}}</span></a>
+    </div><br>
+    <div id="dislike{{photo.id}}">
+        <button data-catid="{{photo.id}}" class="btn btn-danger dislike-btn" name="dislike"> dislike</button>
+        <a href="/account/dislikes/{{photo.id}}"><span>{{photo.dislikes}}</span></a>
+    </div><br>
+</div>
+{% endfor %}
+<br>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+{% csrf_token %}
+{% load static %}
+<script src="{% static 'js/likes.js' %}"></script>
+<script src="{% static 'js/dislikes.js' %}"></script>
+<script src="{% static 'js/follow.js' %}"></script>

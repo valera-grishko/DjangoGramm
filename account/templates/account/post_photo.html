@@ -1,0 +1,24 @@
+{% extends "account/base.html" %}
+{% block title %}Post Photo{% endblock %}
+{% block content %}
+<center>
+    <br><br>
+    <form class="box" action="." enctype="multipart/form-data" method="post" onchange="loadFile(event)">
+        <h1>Post a new photo</h1><br>
+        <h6>You have changed your mind?</h6>
+        <a href="/account/feed/my" type="button">Back to my feed</a>
+        <a href="/account/profile/{{request.user.id}}" type="button">Back to my profile</a><br>
+        <br><h6>If not, use the following form to post a new photo:</h6><br>
+        <br><h6>{{ form.as_p }}</h6>
+        {% csrf_token %}
+        <img id="output" width="400"/>
+        <script>
+            var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        };
+        </script>
+        <br><br><input type="submit" value="POST">
+    </form>
+</center>
+{% endblock %}

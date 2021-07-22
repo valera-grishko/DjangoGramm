@@ -1,0 +1,47 @@
+{% extends "account/base.html" %}
+{% block title %}Feed{% endblock %}
+{% block content %}
+<br><center>
+    <h1> Feed </h1>
+</center>
+<br>
+<center>
+    <a href="/account/profile/{{request.user.id}}" type="button">My profile</a>
+    {% if button %}
+    <a href="/account/feed/my" type="button">My Feed</a>
+    {% else %}
+    <a href="/account/feed/all" type="button">All Feed</a>
+    {% endif %}
+    <br><br><a href="/account/post/" type="button">POST A NEW PHOTO</a>
+</center><br>
+{% for photo in feed %}
+<br>
+<div class="card">
+    <br>
+    <center><h3><a href="/account/profile/{{photo.user_profile.id}}">{{photo.user_profile.username}}</a>
+    </h3></center>
+    <center><p><img src="{{ photo.photo.url }}" width="400" border="1"></p></center>
+    <div id="like{{photo.id}}">
+        <button data-catid="{{photo.id}}" class="btn btn-success like-btn" name="like"> like</button>
+        <a href="/account/likes/{{photo.id}}"><span>{{photo.likes}}</span></a>
+    </div>
+    <br>
+    <div id="dislike{{photo.id}}">
+        <button data-catid="{{photo.id}}" class="btn btn-danger dislike-btn" name="dislike"> dislike</button>
+        <a href="/account/dislikes/{{photo.id}}"><span>{{photo.dislikes}}</span></a>
+    </div>
+    <br>
+</div>
+<br>
+{% endfor %}
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+{% csrf_token %}
+{% load static %}
+<script src="{% static 'js/likes.js' %}"></script>
+<script src="{% static 'js/dislikes.js' %}"></script>
+
+{% endblock %}
+
+
+

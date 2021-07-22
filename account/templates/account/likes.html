@@ -1,0 +1,20 @@
+{% extends "account/base.html" %}
+{% block title %}Likes{% endblock %}
+{% block content %}
+<center>
+    <br><h1> Likes </h1><br>
+</center>
+<center>
+    <a href="/account/feed/my" type="button">My Feed</a>
+    <a href="/account/feed/all" type="button">All Feed</a>
+    <a href="/account/profile/{{photo.user_profile.id}}" type="button">Profile</a>
+</center><br>
+{% for like in likes %}
+<br>
+<div class="card">
+    <center>
+        <h1><a href="/account/profile/{{like.user_profile.id}}">{{like.user_profile.username}}</a></h1>
+    </center>
+</div>
+{% endfor %}
+{% endblock %}

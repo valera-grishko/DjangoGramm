@@ -1,0 +1,31 @@
+{% extends "account/base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+<center>
+    <br><br>
+    <form class="box" action="." method="post">
+        <h1>Log-in</h1><br><br>
+        <h6>Don't have a profile yet?</h6>
+        <a href="/account/registration/" type="button">Registration</a><br><br>
+        {% csrf_token %}
+        <h6><p><label for="id_username">Username:</label>
+            <input type="text" name="username" id="id_username" placeholder="Your username" required></p></h6>
+        <h6><p><label for="id_password">Password:</label>
+            <input type="password" name="password" id="id_password" placeholder="Your password"></p></h6>
+        <br><input type="submit" value="Log-in"><br><br>
+
+        <div class="d-flex justify-content-center mh-100px">
+            <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="/static/images/google.png" width="25"> Log-in
+                with Google</a>
+        </div>
+        <br>
+
+        <div class="d-flex justify-content-center mh-100px">
+            <a href="{% url 'social:begin' 'github' %}"><img src="/static/images/github.png" width="25"> Log-in with
+                GitHub</a>
+        </div>
+    </form>
+</center>
+
+
+{% endblock %}
